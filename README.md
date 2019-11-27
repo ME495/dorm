@@ -15,15 +15,15 @@ Things you may want to cover:
 ### student
 学生表
 
-属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义
--|-|-|-|-|-|-
-student_id | 字符串 | 是 | | | 非空 | 学生id，一般为学号
-password | 字符串 | | | | 非空 | 密码
-student_name | 字符串 | | | | 非空 | 学生姓名
-gender | 字符串 | | |"male" or "female" | 非空 | 性别
-department | 字符串 | | |要与room_id对应的department相同 | 非空 | 学生所属院系
-room_id | 字符串 | |room | | 非空 | 房间号
-email | 字符串 | | | | 非空 | email用于重置修改密码
+| 属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义 |
+|-|-|-|-|-|-|-|
+|student_id | 字符串 | 是 | | | 非空 | 学生id，一般为学号 |
+|password | 字符串 | | | | 非空 | 密码 |
+|student_name | 字符串 | | | | 非空 | 学生姓名 |
+|gender | 字符串 | | |"male" or "female" | 非空 | 性别 |
+|department | 字符串 | | |要与room_id对应的department相同 | 非空 | 学生所属院系 |
+|room_id | 字符串 | |room | | 非空 | 房间号 |
+|email | 字符串 | | | | 非空 | email用于重置修改密码 |
 
 ### room
 房间
