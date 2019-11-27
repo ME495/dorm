@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lecid: 
+  time: MyString
+  suite: MyString
+  type: 
+  text: MyString
+  userid: 
+
+two:
+  lecid: 
+  time: MyString
+  suite: MyString
+  type: 
+  text: MyString
+  userid: 
