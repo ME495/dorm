@@ -38,7 +38,7 @@ Things you may want to cover:
 | gender | 字符串 | | | "male" or "female" | 非空 | 性别 |
 | floor | 整数 | | | | 非空 | 房间所在楼层 |
 | department | 字符串 | | | | 非空 | 拥有该房间的院系 |
-| suite | 字符串 | | | | 非空 | 房间所在的套间 v
+| suite | 字符串 | | | | 非空 | 房间所在的套间 |
 
 ### forum
 宿舍小讲堂
