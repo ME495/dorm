@@ -49,7 +49,6 @@ Things you may want to cover:
 | title | 字符串 | | | | 非空 | 标题 |
 | start_time | 时间 | | | | 非空 | 开始时间 |
 | end_time | 时间 | | | | 非空 | 结束时间 |
-| suite | 字符串 | | | | 非空 | 举办小讲堂的套间 |
 | class | 字符串 | | | | 非空 | 小讲堂的类别 |
 | content | 字符串 | | | | 非空 | 内容 |
 | student_id | 字符串 | | student | | 非空 | 发布小讲堂的学生 |
