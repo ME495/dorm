@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#one:
+#  student_number: 2019E9876543210
+#  password: 123456
+#  student_name: 李四
+#  gender: male
+#  department: 计算机学院
+#  room_id: 雁5-153-3
+#  email: lisi@example.com
+#
+#two:
+#  student_number: 2019E0123456789
+#  password: 123456
+#  student_name: 张三
+#  gender: male
+#  department: 计算机学院
+#  room_id: 雁5-153-3
+#  email: zhangs@example.com

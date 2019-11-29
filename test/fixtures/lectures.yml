@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtraureSet.html
+
+#one:
+#  title: rails
+#  start_time: 2019-12-30 17:10:00
+#  end_time: 2019-12-30 18:10:00
+#  category: 计算机
+#  content: 介绍rails
+#  student_id: 1
+#  suite: 雁5-153
+#
+#two:
+#  title: ruby
+#  start_time: 2019-12-30 17:10:00
+#  end_time: 2019-12-30 18:10:00
+#  category: 计算机
+#  content: 介绍rails
+#  student_id: 1
+#  suite: 雁5-153

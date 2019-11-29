@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_number: 雁5-153-3
+  apartment: 雁5
+  unit: 1
+  capacity: 2
+  amount: 2
+  gender: male
+  floor: 5
+  department: 计算机学院
+  suite: 雁5-153
+
+two:
+  room_number: 雁5-153-5
+  apartment: 雁5
+  unit: 1
+  capacity: 2
+  amount: 0
+  gender: male
+  floor: 5
+  department: 计算机学院
+  suite: 雁5-153
