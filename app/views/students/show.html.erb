@@ -1,7 +1,36 @@
 <% if @student.save%>
-	<p>保存成功</p>
+	<p>保存成功,学生信息如下：</p>
 <% end %>
 <p>
-	<strong>number</strong>
+	<strong>学号:</strong>
 	<%= @student.student_number %>
 </p>
+
+<p>
+        <strong>学生姓名:</strong>
+        <%= @student.student_name %>
+</p>
+
+<p>
+        <strong>性别:</strong>
+        <%= @student.gender %>
+</p>
+
+<p>
+        <strong>所属院系:</strong>
+        <%= @student.department %>
+</p>
+
+<p>
+        <strong>房间号:</strong>
+        <%= @student.room_id %>
+</p>
+<p>
+        <strong>email:</strong>
+        <%= @student.email %>
+</p>
+
+
+<%= link_to '编排这个学生', edit_student_path(@student) %> |
+<%=link_to '显示所有学生的学生信息',students_path %>
+
