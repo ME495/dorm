@@ -1,0 +1,41 @@
+<p>
+	<strong>房间号:</strong>
+	<%= @room.room_number %>
+</P>
+<p>
+        <strong>所属公寓名称:</strong>
+        <%= @room.apartment %>
+</P>
+<p>
+        <strong>所在楼栋单元:</strong>
+        <%= @room.unit %>
+</P>
+<p>
+        <strong>所能容纳人数:</strong>
+        <%= @room.capacity %>
+</P>
+<p>
+        <strong>房间已住人数:</strong>
+        <%= @room.amount %>
+</P>
+<p>
+        <strong>性别:</strong>
+        <%= @room.gender %>
+</P>
+<p>
+        <strong>房间所在楼层:</strong>
+        <%= @room.floor %>
+</P>
+<p>
+        <strong>房间所属院系:</strong>
+        <%= @room.department %>
+</P>
+<p>
+        <strong>房间所在套间:</strong>
+        <%= @room.suite %>
+</P>
+
+
+<%= link_to '查看所有房间',rooms_path %> | 
+<%= link_to '重新编辑',edit_room_path(@room) %> |
+<%= link_to '新建房间',new_room_path %> 

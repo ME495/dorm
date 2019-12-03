@@ -1,0 +1,33 @@
+<%= form_for :student, url: students_path do |f| %>
+  <p>
+    <%= f.label :学号 %><br>
+    <%= f.text_field :student_number %>
+  </p>
+  <p>
+    <%= f.label :密码 %><br>
+    <%= f.text_field :student_number %>
+  </p>
+  <p>
+    <%= f.label :学生姓名 %><br>
+    <%= f.text_field :student_name %>
+  </p>
+  <p>
+    <%= f.label :性别 %><br>
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.label :学生所在院系 %><br>
+    <%= f.text_field :department %>
+  </p>
+  <p>
+    <%= f.label :房间号 %><br>
+    <%= f.text_field :room_id %>
+  </p>
+   <p>
+    <%= f.label :email（用于密码重置） %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
