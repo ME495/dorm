@@ -1,0 +1,20 @@
+<h1>房间管理界面</h1><%= link_to '新建房间',new_room_path %>
+<table>
+	 <tr>
+    <th>房间号</th>
+    <th>所属院系</th>
+  </tr>
+ 
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><%= room.room_number %></td>
+      <td><%= room.department %></td>
+      <td><%= link_to '展示房间信息', room_path(room) %></td>
+      <td><%= link_to '编辑该房间信息',edit_room_path(room) %></td>
+      <td><%= link_to '删除房间信息', room_path(room),
+              method: :delete,
+              data: { confirm: '确定删除这条房间信息吗？' } %></td>
+    </tr>
+   <% end %>
+</table>
+
