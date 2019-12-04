@@ -1,0 +1,50 @@
+<h1>编辑学生信息</h1>
+<%= form_for :student, url: students_path do |f| %>
+ <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@student.errors.count, "error") %> 在阻止改学生信息被保存:
+      </h2>
+      <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <p>
+    <%= f.label :学号 %><br>
+    <%= f.text_field :student_number %>
+  </p>
+  <p>
+    <%= f.label :密码 %><br>
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :学生姓名 %><br>
+    <%= f.text_field :student_name %>
+  </p>
+  <p>
+    <%= f.label :性别 %><br>
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.label :学生所在院系 %><br>
+    <%= f.text_field :department %>
+  </p>
+  <p>
+    <%= f.label :房间号 %><br>
+    <%= f.text_field :room_id %>
+  </p>
+   <p>
+    <%= f.label :email（用于密码重置） %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to '返回学生信息主页面',students_path %>

@@ -7,6 +7,7 @@ class RoomTest < ActiveSupport::TestCase
                     unit: 1,
                     capacity: 2,
                     floor: 5,
+                    gender: 'male',
                     suite: '雁5-153')
     assert room.save
   end

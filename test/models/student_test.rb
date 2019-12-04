@@ -13,6 +13,16 @@ class StudentTest < ActiveSupport::TestCase
     assert student.save
   end
 
+  test 'should save student without room id' do
+    student = Student.new(student_number: '2019E9876543210',
+                          password: '123456',
+                          student_name: '李四',
+                          gender: 'male',
+                          department: '计算机学院',
+                          email: 'lisi@example.com')
+    assert student.save
+  end
+
   test 'should not save student when its student number is exist' do
     room = Room.find_by_room_number('雁5-153-3')
     student1 = Student.new(student_number: '2019E9876543210',
@@ -33,7 +43,7 @@ class StudentTest < ActiveSupport::TestCase
     assert_not student2.save
   end
 
-  test 'should not save student when its room_id is not exits' do
+  test 'should not save student when its room is not exits' do
     room = Room.find_by_room_number('雁5-153-3')
     student = Student.create(student_number: '2019E9876543210',
                              password: '123456',

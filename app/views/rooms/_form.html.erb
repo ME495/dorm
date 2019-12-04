@@ -1,0 +1,55 @@
+<%= form_for:room,url:rooms_path do |f| %>
+	<% if @room.errors.any? %>
+   	 <div id="error_explanation">
+      <h2>
+        <%= pluralize(@room.errors.count, "error") %> 条错误信息阻止了该页面被保存:
+      </h2>
+      <ul>
+        <% @room.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
+	<p>
+		<%= f.label:房间号 %><br>
+		<%= f.text_field:room_number %>
+	</p>
+
+	<p>
+                <%= f.label:所属公寓名称 %><br>
+                <%= f.text_field:apartment %>
+        </p>
+	<p>
+                <%= f.label:房间所在的楼栋单元 %><br>
+                <%= f.text_field:unit %>
+        </p>
+	<p>
+                <%= f.label:房间所能容纳的人数 %><br>
+                <%= f.text_field:capacity %>
+        </p>
+	<p>
+                <%= f.label:房间已住人数 %><br>
+                <%= f.text_field:amount %>
+        </p>
+	<p>
+                <%= f.label:性别 %><br>
+                <%= f.text_field:gender %>
+        </p>
+	<p>
+                <%= f.label:房间所在楼层 %><br>
+                <%= f.text_field:floor %>
+        </p>
+	<p>
+                <%= f.label:拥有该房间的院系 %><br>
+                <%= f.text_field:department %>
+        </p>
+	<p>
+                <%= f.label:房间所在的套间 %><br>
+                <%= f.text_field:suite %>
+        </p>
+	<p>
+    		<%= f.submit %>
+ 	</p>
+<% end %>
+

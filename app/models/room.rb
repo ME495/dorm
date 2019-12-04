@@ -1,13 +1,13 @@
 class AmountValidator < ActiveModel::Validator
   def validate(room)
-    if room.amount > room.capacity
+    if not room.amount.nil? and not room.capacity.nil? and room.amount > room.capacity
       room.errors[:amount] << 'cannot be greater than capacity.'
     end
   end
 end
 
 class Room < ApplicationRecord
-  has_many :students
+  has_many :students, dependent: :nullify
   validates :room_number, :apartment, :unit, :capacity, :floor, :suite, presence: true
   validates :unit, :capacity, :amount, :floor, numericality: {only_integer: true}
   validates :capacity, :amount, numericality: {greater_than_or_equal_to: 0}
