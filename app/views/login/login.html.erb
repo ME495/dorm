@@ -1,0 +1,22 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<% provide(:title, "登录") %>
+<h1>宿舍管理系统</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label "学号"%>
+      <%= f.text_field :student_number, class: 'form-control' %>
+
+      <%= f.label "密码" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "登录", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
