@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>标题</th>
+    <th>类别</th>
+    <th>开始时间</th>
+    <th>结束时间</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @lectures.each do |lecture| %>
+    <tr>
+      <td><%= lecture.title %></td>
+      <td><%= lecture.category %></td>
+      <td><%= lecture.start_time %></td>
+      <td><%= lecture.end_time %></td>
+      <td><%= link_to 'Show', lecture_path(lecture) %></td>
+    </tr>
+  <% end %>
+</table>

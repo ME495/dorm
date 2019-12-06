@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-	resources:rooms
-	resources:students
+	resources :rooms
+	resources :students
+  resources :lectures
   root 'login#login'
   get  '/main/:id', to: 'main#fetch'
   get  '/login',    to: 'login#login'
