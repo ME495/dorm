@@ -1,10 +1,14 @@
 class LecturesController < ApplicationController
-  def index
-    @lectures = Lecture.all
-  end
-
-  def show
-    @lecture = Lecture.find(params[:id])
-    @student = Student.find(@lecture.student_id)
-  end
+  def new
+		@lecture = Lecture.new
+	end
+	def create
+		render plain: params[:lecture].inspect
+		#@lecture = Lecture.new(lecture_params)
+		#if @lecture.save
+	#		redirect_to @lecture
+	#	else
+	#		render 'new'
+	#	end
+	end
 end
