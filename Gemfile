@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap-sass', '~> 3.2.0.2'
 
+gem 'simple_form'
+
 gem 'wdm','>=0.1.0' if Gem.win_platform?
 
 # Use CoffeeScript for .coffee assets and views
