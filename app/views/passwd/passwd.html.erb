@@ -2,24 +2,26 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
-<% provide(:title, "登录") %>
-<h1>宿舍管理系统</h1>
+<% provide(:title, "修改密码") %>
+<h1>修改密码</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
+    <%= form_for(:session, url: passwd_path) do |f| %>
       <%= f.label "学号/用户名"%>
       <%= f.text_field :student_number, class: 'form-control' %>
-
-      <%= f.label "密码" %>
+      <%= f.label "邮箱"%>
+      <%= f.text_field :email, class: 'form-control' %>
+      <%= f.label "新密码" %>
       <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label "确认密码" %>
+      <%= f.password_field :cfm, class: 'form-control' %>
       <div style="vertical-align:text-top;">
       <%= f.collection_radio_buttons :type,[['学生'],['管理员']],:first,:last, class: 'form-control' %>
       </div>
-      <%=link_to '忘记密码？点击修改',passwd_path %>
-      <br><br/>
-      <%= f.submit "登录", class: "btn btn-primary",style:"width:100%;" %>
+      <%=link_to '返回登录',login_path %>
+      <br>
+      <%= f.submit "提交", class: "btn btn-primary",style:"width:100%;" %>
     <% end %>
 
   </div>
