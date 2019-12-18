@@ -1,26 +1,24 @@
-<h1>新建宿舍小讲堂</h1>
 
+<h1>新建宿舍小讲堂</h1>
 <%= form_for :lecture ,url: lectures_path do |f| %>
   <p>
     <%= f.label :题目 %><br>
     <%= f.text_field :title %>
   </p>
-
   <p>
     <%= f.label :开始时间 %><br>
-    <%= datetime_local_field(:start_time, :graduation_day) %>
+    <%= datetime_local_field(:lecture, :start_time) %>
   </p>
 
   <p>
     <%= f.label :结束时间 %><br>
-    <%= datetime_local_field(:end_time, :graduation_day) %>
+    <%= datetime_local_field(:lecture, :end_time) %>
   </p>
 
   <p>
     <%= f.label :类别 %><br>
-    <%= select_tag(:category , options_for_select([['技术'], ['科普'] ]) ) %>
+    <%= select :lecture,:category, ['aaa', 'bbb'] %>
   </p>
- 
    <p>
     <%= f.label :内容 %><br>
     <%= f.text_field :content %>
@@ -32,6 +30,6 @@
   </p>
 
   <p>
-    <%= f.submit "保存" %>
+    <%= f.submit "保存  " %>
   </p>
-<% end %>
+<% end%>
