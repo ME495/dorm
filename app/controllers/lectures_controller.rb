@@ -15,6 +15,7 @@ class LecturesController < ApplicationController
 			render 'show'
 		end
 	end
+	
 	private
 	def lecture_params
 		params.require(:lecture).permit(:title,:start_time,:end_time,:category,:student_id,:content,:suite)
