@@ -11,7 +11,7 @@ class SuiteValidator < ActiveModel::Validator
 end
 
 class Lecture < ApplicationRecord
-  belongs_to :student
+  belongs_to :student 
   validates_with SuiteValidator
   validates :title, :start_time, :end_time, :category, :student_id, :suite, presence: true
 end

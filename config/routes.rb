@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'lectures/new'
+
 	resources :rooms
 	resources :students
   resources :lectures
