@@ -33,7 +33,7 @@ Things you may want to cover:
 |-|-|-|-|-|-|-|
 | id | 整数 | 是 | | | 非空 | 自增主键 |
 | name | 字符串 | | | unique | 非空 | 班级名称 |
-| apartment | 字符串 | | | | 非空 | 所属院系 |
+| department | 字符串 | | | | 非空 | 所属院系 |
 
 
 ### student
