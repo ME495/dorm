@@ -3,7 +3,8 @@ class SuiteValidator < ActiveModel::Validator
     if Student.exists?(lecture.student_id)
       student = Student.find(lecture.student_id)
       room = Room.find(student.room_id)
-      if lecture.suite != room.suite
+      suite = Suite.find(room.suite_id)
+      if lecture.suite != suite.name
         lecture.errors[:suite] << 'must match suite of student'
       end
     end
@@ -11,7 +12,7 @@ class SuiteValidator < ActiveModel::Validator
 end
 
 class Lecture < ApplicationRecord
-  belongs_to :student 
+  belongs_to :student
   validates_with SuiteValidator
-  validates :title, :start_time, :end_time, :category, :student_id, :suite, presence: true
+  validates :title, :start_time, :end_time, :category, :content, :student_id, :suite, presence: true
 end

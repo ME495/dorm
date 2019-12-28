@@ -8,11 +8,10 @@ end
 
 class Room < ApplicationRecord
   has_many :students, dependent: :nullify
-  validates :room_number, :apartment, :unit, :capacity, :floor, :suite, presence: true
-  validates :unit, :capacity, :amount, :floor, numericality: {only_integer: true}
-  validates :capacity, :amount, numericality: {greater_than_or_equal_to: 0}
-  validates :room_number, uniqueness: true
+  belongs_to :team, optional: true
+  belongs_to :suite, optional: true
+  validates :name, :number, :suite_id, :capacity, :amount, presence: true
+  validates :capacity, :amount, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+  validates :name, uniqueness: true
   validates_with AmountValidator
-  validates :gender, inclusion: {in: ['male', 'female']}
 end
-
