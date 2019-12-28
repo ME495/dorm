@@ -32,7 +32,7 @@ Things you may want to cover:
 | 属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义 |
 |-|-|-|-|-|-|-|
 | id | 整数 | 是 | | | 非空 | 自增主键 |
-| name | 字符串 | | | | 非空 | 班级名称 |
+| name | 字符串 | | | unique | 非空 | 班级名称 |
 | apartment | 字符串 | | | | 非空 | 所属院系 |
 
 
@@ -42,7 +42,7 @@ Things you may want to cover:
 | 属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义 |
 |-|-|-|-|-|-|-|
 | id | 整数 | 是 | | | 非空 | 自增主键 |
-| number | 字符串 | | | | 非空 | 学号 |
+| number | 字符串 | | | unique | 非空 | 学号 |
 | password | 字符串 | | | | 非空 | 密码 |
 | name | 字符串 | | | | 非空 | 学生姓名 |
 | gender | 字符串 | | |"male" or "female" | 非空 | 性别 |
