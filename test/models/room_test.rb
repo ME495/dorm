@@ -11,6 +11,7 @@ class RoomTest < ActiveSupport::TestCase
                                capacity: 2,
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert room.save
   end
@@ -19,6 +20,7 @@ class RoomTest < ActiveSupport::TestCase
     room = @suite.rooms.create(capacity: 2,
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end
@@ -27,6 +29,7 @@ class RoomTest < ActiveSupport::TestCase
     room = @suite.rooms.create(name: '雁5-153-1',
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end
@@ -36,6 +39,7 @@ class RoomTest < ActiveSupport::TestCase
                     capacity: 2,
                     amount: 0,
                     number: 1,
+                    gender: 'male',
                     team_id: @team.id)
     assert_not room.save
   end
@@ -45,6 +49,7 @@ class RoomTest < ActiveSupport::TestCase
                                capacity: 2.5,
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end
@@ -54,6 +59,7 @@ class RoomTest < ActiveSupport::TestCase
                                capacity: -2,
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end
@@ -63,6 +69,7 @@ class RoomTest < ActiveSupport::TestCase
                                capacity: 2,
                                amount: -1,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end
@@ -72,6 +79,7 @@ class RoomTest < ActiveSupport::TestCase
                                capacity: 2,
                                amount: 0,
                                number: 1,
+                               gender: 'male',
                                team_id: @team.id)
     assert_not room.save
   end

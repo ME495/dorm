@@ -7,6 +7,7 @@ one:
   number: 3
   capacity: 2
   amount: 2
+  gender: male
   team_id: 1
 
 two:
@@ -16,4 +17,5 @@ two:
   number: 5
   capacity: 2
   amount: 0
+  gender: male
   team_id: 1
