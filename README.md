@@ -61,6 +61,7 @@ Things you may want to cover:
 | number | 整数 | | | | 非空 | 房间编号 |
 | capacity | 整数 | | | | 非空 | 房间所能容纳的人数 |
 | amount | 整数 | | | 不大于capacity | 非空 | 房间已住人数 |
+| gender | 字符串 | | |"male" or "female" | 非空 | 性别 |
 | team_id | 整数 | | team | | | 拥有该房间的班级 |
 
 ### lecture
