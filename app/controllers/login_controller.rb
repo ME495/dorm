@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 
   def create
     if params[:session][:type].to_s=="学生"
-      user = Student.where("student_number=?",params[:session][:student_number]).first
+      user = Student.find_by_number(params[:session][:number])
       if user && user.password==params[:session][:password]
           # 登录成功操作
           #flash.now[:danger] = "登录成功，用户名/密码正确！"

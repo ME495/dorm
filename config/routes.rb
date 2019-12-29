@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get  '/logout',   to: 'login#destroy'
   get  '/passwd',   to: 'passwd#passwd'
   post '/passwd',   to: 'passwd#create'
-  post '/rooms/:id',    to: 'rooms#update'
-  post '/students/:id', to: 'students#update'
+
+  get  '/select_room', to: 'select_room#select'
+  post '/select_room/get_room', to: 'select_room#get_room'
+  post '/select_room/allocate_room', to: 'select_room#allocate_room'
 end
