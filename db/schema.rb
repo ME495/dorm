@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191228151246) do
+ActiveRecord::Schema.define(version: 20191229032419) do
 
   create_table "admins", force: :cascade do |t|
     t.string "account"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20191228151246) do
     t.integer "number"
     t.integer "suite_id"
     t.integer "team_id"
+    t.string "gender"
     t.index ["name"], name: "index_rooms_on_name", unique: true
     t.index ["suite_id"], name: "index_rooms_on_suite_id"
     t.index ["team_id"], name: "index_rooms_on_team_id"
