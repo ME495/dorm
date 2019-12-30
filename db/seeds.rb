@@ -88,5 +88,6 @@ for i in 1..60
   student = team.students.create!(number: "2019#{number}",
                                   password: "123456",
                                   name: name,
-                                  gender: gender)
+                                  gender: gender,
+                                  email: 'example@example.com')
 end
