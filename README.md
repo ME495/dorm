@@ -26,14 +26,14 @@ Things you may want to cover:
 | gender | 字符串 | | | | 非空 | 性别 |
 | layout | 字符串 | | | | 非空 | 布局 |
 
-### class
+### team
 班级
 
 | 属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义 |
 |-|-|-|-|-|-|-|
 | id | 整数 | 是 | | | 非空 | 自增主键 |
-| name | 字符串 | | | | 非空 | 班级名称 |
-| apartment | 字符串 | | | | 非空 | 所属院系 |
+| name | 字符串 | | | unique | 非空 | 班级名称 |
+| department | 字符串 | | | | 非空 | 所属院系 |
 
 
 ### student
@@ -42,11 +42,11 @@ Things you may want to cover:
 | 属性 | 数据类型 | 主键 | 参照表 | 约束 | 空值 | 意义 |
 |-|-|-|-|-|-|-|
 | id | 整数 | 是 | | | 非空 | 自增主键 |
-| number | 字符串 | | | | 非空 | 学号 |
+| number | 字符串 | | | unique | 非空 | 学号 |
 | password | 字符串 | | | | 非空 | 密码 |
 | name | 字符串 | | | | 非空 | 学生姓名 |
 | gender | 字符串 | | |"male" or "female" | 非空 | 性别 |
-| class_id | 字符串 | | class | | 非空 | 学生所属班级 |
+| team_id | 字符串 | | team | | 非空 | 学生所属班级 |
 | room_id | 字符串 | |room | | | 房间号 |
 | email | 字符串 | | | | | email用于重置修改密码 |
 
@@ -61,7 +61,8 @@ Things you may want to cover:
 | number | 整数 | | | | 非空 | 房间编号 |
 | capacity | 整数 | | | | 非空 | 房间所能容纳的人数 |
 | amount | 整数 | | | 不大于capacity | 非空 | 房间已住人数 |
-| class_id | 整数 | | class | | | 拥有该房间的班级 |
+| gender | 字符串 | | |"male" or "female" | 非空 | 性别 |
+| team_id | 整数 | | team | | | 拥有该房间的班级 |
 
 ### lecture
 宿舍小讲堂
