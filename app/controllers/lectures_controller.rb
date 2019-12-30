@@ -13,11 +13,10 @@ class LecturesController < ApplicationController
 	end
 
  	def new
-		@lecture = Lecture.new
+		@student = current_user
 	end
 
 	def create
-		puts params.inspect
 
 		@student = current_user
 		@lecture = @student.lectures.new(title: params[:title],

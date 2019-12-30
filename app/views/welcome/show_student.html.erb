@@ -1,0 +1,33 @@
+<%= render "welcome/nav" %>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-striped">
+        <caption><h1>个人信息</h1></caption>
+        <tbody>
+        <tr>
+          <td>姓名</td>
+          <td><%= @student.name %></td>
+        </tr>
+        <tr>
+          <td>班级</td>
+          <td><%= @student.team.name %></td>
+        </tr>
+        <tr>
+          <td>学号</td>
+          <td><%= @student.number %></td>
+        </tr>
+        <tr>
+          <td>性别</td>
+          <td><%= @student.gender %></td>
+        </tr>
+        <tr>
+          <td>房间</td>
+          <td><%= @student.room.name if not @student.room.nil? %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

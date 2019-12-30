@@ -45,55 +45,61 @@
 <!--  </p>-->
 <%# end%>
 
-<div class="container">
-  <h1>发布宿舍小讲堂</h1>
-  <div class="row">
-    <div class="form-group col-xs-8">
-      <label for="name">标题</label>
-      <input type="text" class="form-control" id="title" placeholder="请输入标题">
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-xs-8">
-      <label>开始时间</label>
-      <input type="text" class="form-control time" id="start_time" readonly="readonly" placeholder="请选择开始日期">
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-xs-8">
-      <label>结束时间</label>
-      <input type="text" class="form-control time" id="end_time" readonly="readonly" placeholder="请选择结束日期">
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group col-xs-8">
-      <label>类别</label>
-      <select class="form-control" id="category">
-        <option value="数学">数学</option>
-        <option value="英语">英语</option>
-        <option value="计算机">计算机</option>
-        <option value="文学">文学</option>
-        <option value="哲学">哲学</option>
-        <option value="生活">生活</option>
-        <option value="生物">生物</option>
-        <option value="音乐">音乐</option>
-        <option value="历史">历史</option>
-        <option value="其他">其他</option>
-      </select>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <label>内容</label>
-      <div id="content"></div>
-    </div>
-  </div>
-  <br><br>
-  <div class="row">
-    <button type="button" class="btn btn-primary col-xs-2 col-xs-offset-5" id="confirm">确定</button>
-  </div>
+<%= render "welcome/nav" %>
 
-</div>
+<% if @student.room_id.nil? %>
+  <h1>请先抢宿舍！</h1>
+<% else %>
+  <div class="container">
+    <h1>发布宿舍小讲堂</h1>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">标题</label>
+        <input type="text" class="form-control" id="title" placeholder="请输入标题">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label>开始时间</label>
+        <input type="text" class="form-control time" id="start_time" readonly="readonly" placeholder="请选择开始日期">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label>结束时间</label>
+        <input type="text" class="form-control time" id="end_time" readonly="readonly" placeholder="请选择结束日期">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label>类别</label>
+        <select class="form-control" id="category">
+          <option value="数学">数学</option>
+          <option value="英语">英语</option>
+          <option value="计算机">计算机</option>
+          <option value="文学">文学</option>
+          <option value="哲学">哲学</option>
+          <option value="生活">生活</option>
+          <option value="生物">生物</option>
+          <option value="音乐">音乐</option>
+          <option value="历史">历史</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <label>内容</label>
+        <div id="content"></div>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <button type="button" class="btn btn-primary col-xs-2 col-xs-offset-5" id="confirm">确定</button>
+    </div>
+
+  </div>
+<% end %>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -167,5 +173,11 @@
                 });
             }
         });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#new_lectures").addClass("active");
     });
 </script>

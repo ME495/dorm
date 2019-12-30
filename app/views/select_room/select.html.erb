@@ -1,3 +1,4 @@
+<%= render "welcome/nav" %>
 <% if @student.room_id.nil? %>
   <h1>抢宿舍</h1>
   <div class="container">
@@ -22,6 +23,7 @@
   </div>
   <script type="text/javascript">
       $(document).ready(function () {
+          $("#select_home").addClass("active");
           checked_suite = null;
           checked_room = null;
           $('.suite').click(function () {
@@ -96,4 +98,9 @@
   </script>
 <% else %>
   <h1>您已经选好宿舍！</h1>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#select_room").addClass("active");
+      });
+  </script>
 <% end %>

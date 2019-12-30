@@ -3,12 +3,12 @@
 <% end %>
 <p>
 	<strong>学号:</strong>
-	<%= @student.student_number %>
+	<%= @student.number %>
 </p>
 
 <p>
         <strong>学生姓名:</strong>
-        <%= @student.student_name %>
+        <%= @student.name %>
 </p>
 
 <p>
@@ -17,13 +17,13 @@
 </p>
 
 <p>
-        <strong>所属院系:</strong>
-        <%= @student.department %>
+        <strong>班级:</strong>
+        <%= @student.team.name %>
 </p>
 
 <p>
         <strong>房间号:</strong>
-        <%= @student.room_id %>
+        <%= @student.room.name %>
 </p>
 <p>
         <strong>email:</strong>

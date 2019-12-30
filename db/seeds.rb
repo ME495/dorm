@@ -39,7 +39,7 @@ for apartment in 1..5
 end
 
 team = Team.create!(name: '20180708', department: '计算机学院')
-for i in 1..40
+for i in 1..60
   number = "%011d"%i
   gender = 'male'
   if i<=10
@@ -56,26 +56,26 @@ for i in 1..40
                                   gender: gender,
                                   room_id: room.id,
                                   email: 'example@example.com')
-  start_time = Time.local(2019,rand(12)+1,rand(28)+1,14,0,0)
-  end_time = start_time + 7200
-  lecture = student.lectures.create!(title: "ruby",
-                                     start_time: start_time,
-                                     end_time: end_time,
-                                     category: '计算机',
-                                     content: "a"*1000,
-                                     suite: student.room.suite.name)
-  start_time = Time.local(2019,rand(12)+1,rand(28)+1,14,0,0)
-  end_time = start_time + 7200
-  lecture = student.lectures.create!(title: "二元一次方程求解",
-                                     start_time: start_time,
-                                     end_time: end_time,
-                                     category: '数学',
-                                     content: "b"*1000,
-                                     suite: student.room.suite.name)
+  #start_time = Time.local(2019,rand(12)+1,rand(28)+1,14,0,0)
+  #end_time = start_time + 7200
+  #lecture = student.lectures.create!(title: "ruby",
+  #                                   start_time: start_time,
+  #                                   end_time: end_time,
+  #                                   category: '计算机',
+  #                                   content: "a"*1000,
+  #                                   suite: student.room.suite.name)
+  #start_time = Time.local(2019,rand(12)+1,rand(28)+1,14,0,0)
+  #end_time = start_time + 7200
+  #lecture = student.lectures.create!(title: "二元一次方程求解",
+  #                                   start_time: start_time,
+  #                                   end_time: end_time,
+  #                                   category: '数学',
+  #                                   content: "b"*1000,
+  #                                   suite: student.room.suite.name)
 end
 
 team = Team.create!(name: '20190708', department: '计算机学院')
-for i in 1..40
+for i in 1..60
   number = "%011d"%i
   gender = 'male'
   if i<=10

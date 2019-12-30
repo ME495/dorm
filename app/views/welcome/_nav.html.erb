@@ -1,0 +1,30 @@
+<div class="container">
+
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">宿舍管理系统</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li id="home"><a href="/welcome">首页</a></li>
+          <li id="select_room"><a href="/select_room">抢宿舍</a></li>
+          <li id="lectures"><a href="/lectures">浏览宿舍小讲堂</a></li>
+          <li id="new_lectures"><a href="/lectures/new">发布宿舍小讲堂</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% student =  Student.find(session[:id]) %>
+          <li><a href="/welcome/show_student"><%= student.name %></a></li>
+          <li><a href="/logout">注销</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+</div>

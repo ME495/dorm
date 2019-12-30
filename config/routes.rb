@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   get 'lectures/new'
 
 	resources :rooms
@@ -16,4 +18,7 @@ Rails.application.routes.draw do
   get  '/select_room', to: 'select_room#select'
   post '/select_room/get_room', to: 'select_room#get_room'
   post '/select_room/allocate_room', to: 'select_room#allocate_room'
+
+  get '/welcome', to: 'welcome#index'
+  get '/welcome/show_student', to: 'welcome#show_student'
 end
