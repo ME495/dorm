@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: 20190708
+  department: 计算机学院
+
+two:
+  id: 2
+  name: 20190709
+  department: 计算机学院

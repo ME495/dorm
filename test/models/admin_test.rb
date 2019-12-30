@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
+  test 'find_admin' do
+    admin = Admin.find(1)
+    assert_equal 'admin1', admin.account
+  end
+
   test 'valid admin' do
     admin = Admin.new(account: 'admin3',
                       password: '123456',

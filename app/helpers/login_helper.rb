@@ -5,7 +5,7 @@ module LoginHelper
    
      # 返回当前系统登录用户
      def current_user
-        @current_user ||= Student.find_by(id: session[:id])
+       @current_user = Student.find_by(id: session[:id])
      end
    
      # 返回当前是否存在已登录用户

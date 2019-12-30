@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtraureSet.html
+
+one:
+  id: 1
+  name: 雁5-153
+  apartment: 雁5
+  unit: 1
+  floor: 5
+  number: 3
+  gender: male
+  layout: 0
+
+two:
+  id: 2
+  name: 雁5-152
+  apartment: 雁5
+  unit: 1
+  floor: 5
+  number: 2
+  gender: male
+  layout: 0

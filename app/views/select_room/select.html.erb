@@ -1,0 +1,106 @@
+<%= render "welcome/nav" %>
+<% if @student.room_id.nil? %>
+  <h1>抢宿舍</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <label>请选择套间：</label><br>
+        <% for suite in @suites %>
+          <button type="button" class="btn btn-primary suite" suite_id="<%= suite.id %>" layout="<%= suite.layout %>"><%= suite.name %></button>
+        <% end %>
+        <br><br><br>
+        <label>请选择房间：</label>
+        <div id="room_list"></div>
+      </div>
+      <div class="col-xs-6">
+        <img class="img-rounded img-responsive">
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <button type="button" id="confirm" class="col-xs-2 col-xs-offset-5 btn btn-warning text-center">确认</button>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#select_home").addClass("active");
+          checked_suite = null;
+          checked_room = null;
+          $('.suite').click(function () {
+              checked_room = null;
+              if(checked_suite != null) {
+                  checked_suite.removeClass('btn-success');
+                  checked_suite.addClass('btn-primary')
+              }
+              $(this).removeClass('btn-primary');
+              $(this).addClass('btn-success');
+              $('img').attr('src', '/assets/layout'+$(this).attr('layout')+'.png');
+              checked_suite = $(this);
+              $.post('/select_room/get_room', {suite_id: $(this).attr('suite_id')}, function (data, status) {
+                  if(status=='success') {
+                      // console.log(data);
+                      rooms = eval(data);
+                      $('#room_list').empty();
+                      if(rooms==null || rooms==undefined || rooms.length==0) {
+                          $label = $('<span class="label label-danger">该套间的房间已经被抢完了！</span>');
+                          $('#room_list').append($label);
+                      } else {
+                          for (var i = 0; i < rooms.length; ++i) {
+                              $btn = $("<button type='button' class='btn btn-primary room' room_id='" + rooms[i].room_id + "'>" + rooms[i].room_name + "</button>");
+                              $btn.click(function () {
+                                  if (checked_room != null) {
+                                      checked_room.removeClass('btn-success');
+                                      checked_room.addClass('btn-primary')
+                                  }
+                                  $(this).removeClass('btn-primary');
+                                  $(this).addClass('btn-success');
+                                  checked_room = $(this);
+                              });
+                              $('#room_list').append($btn)
+                          }
+                      }
+                  }
+              });
+          });
+          $('.suite:first').click();
+          $('.room').click(function () {
+              if(checked_room != null) {
+                  checked_room.removeClass('btn-success');
+                  checked_room.addClass('btn-primary')
+              }
+              $(this).removeClass('btn-primary');
+              $(this).addClass('btn-success');
+              checked_room = $(this);
+          });
+          $("#confirm").click(function () {
+              $(this).attr("disabled",true);
+              if(checked_room==null) {
+                  alert('请先选择房间！');
+              } else {
+                  $.post('/select_room/allocate_room', {room_id: checked_room.attr('room_id')}, function (data, status) {
+                      if(status=='success') {
+                          result = eval(data);
+                          if(result.message=='ok') {
+                              alert("抢宿舍成功！");
+                              window.location.href = "/select_room";
+                          } else {
+                              alert(data);
+                              window.location.href = "/select_room";
+                          }
+                      } else {
+                          alert("发生未知错误！");
+                          window.location.href = "/select_room";
+                      }
+                  });
+              }
+          });
+      });
+  </script>
+<% else %>
+  <h1>您已经选好宿舍！</h1>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#select_room").addClass("active");
+      });
+  </script>
+<% end %>

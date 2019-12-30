@@ -1,5 +1,7 @@
 class LoginController < ApplicationController
 
+  skip_before_action :require_student_login
+
   include LoginHelper
 
   def login
@@ -8,13 +10,13 @@ class LoginController < ApplicationController
 
   def create
     if params[:session][:type].to_s=="学生"
-      user = Student.where("student_number=?",params[:session][:student_number]).first
+      user = Student.find_by_number(params[:session][:number])
       if user && user.password==params[:session][:password]
           # 登录成功操作
           #flash.now[:danger] = "登录成功，用户名/密码正确！"
           log_in user
           x=user.id.to_s
-          redirect_to '/main/'+x
+          redirect_to '/welcome'
       else
           flash.now[:danger] = "登录失败，学号/密码错误！"
           render :login
