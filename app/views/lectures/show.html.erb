@@ -38,9 +38,10 @@
 <div class="container">
   <h1><%= @lecture.title %></h1>
   <div class="raw">
-    <label class="col-xs-4">开始时间：<%= @lecture.start_time %></label>
-    <label class="col-xs-4">结束时间：<%= @lecture.end_time %></label>
-    <label class="col-xs-4">地点：<%= @lecture.suite %></label>
+    <label class="col-xs-3">开始时间：<%= @lecture.start_time %></label>
+    <label class="col-xs-3">结束时间：<%= @lecture.end_time %></label>
+    <label class="col-xs-3">发布人：<%= @lecture.student.name %></label>
+    <label class="col-xs-3">地点：<%= @lecture.suite %></label>
   </div>
 
 
