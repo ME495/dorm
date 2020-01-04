@@ -1,36 +1,37 @@
-<% if @student.save%>
-	<p>保存成功,学生信息如下：</p>
-<% end %>
-<p>
-	<strong>学号:</strong>
-	<%= @student.number %>
-</p>
-
-<p>
-        <strong>学生姓名:</strong>
-        <%= @student.name %>
-</p>
-
-<p>
-        <strong>性别:</strong>
-        <%= @student.gender %>
-</p>
-
-<p>
-        <strong>班级:</strong>
-        <%= @student.team.name %>
-</p>
-
-<p>
-        <strong>房间号:</strong>
-        <%= @student.room.name %>
-</p>
-<p>
-        <strong>email:</strong>
-        <%= @student.email %>
-</p>
-
-
-<%= link_to '编排这个学生', edit_student_path(@student) %> |
-<%=link_to '显示所有学生的学生信息',students_path %>
+<%= render "welcome/admin_nav" %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-striped">
+        <caption><h1>学生信息</h1></caption>
+        <tbody>
+        <tr>
+          <td>姓名</td>
+          <td><%= @student.name %></td>
+        </tr>
+        <tr>
+          <td>班级</td>
+          <td><%= @student.team.name %></td>
+        </tr>
+        <tr>
+          <td>学号</td>
+          <td><%= @student.number %></td>
+        </tr>
+        <tr>
+          <td>性别</td>
+          <td><%= @student.gender %></td>
+        </tr>
+        <tr>
+          <td>房间</td>
+          <td><%= @student.room.name if not @student.room.nil? %></td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td><%= @student.email %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 

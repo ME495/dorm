@@ -1,4 +1,8 @@
 class StudentsController < ApplicationController
+
+  skip_before_action :require_student_login
+  skip_before_action :verify_authenticity_token
+
   def index
     @students = Student.all
   end
@@ -8,7 +12,6 @@ class StudentsController < ApplicationController
   end
 
   def new
-    @student = Student.new
   end
 
   def edit
@@ -16,12 +19,24 @@ class StudentsController < ApplicationController
   end
 
   def create
-#                render plain: params[:student].inspect
-    @student = Student.new(student_params)
-    if @student.save
-      redirect_to @student
+    team = Team.find_by_name(student_params[:team_name])
+    if team.nil?
+      flash.now[:alert] = '请填写有效的班级!'
+      render "new"
     else
-      render 'new'
+      @student = Student.new(number: student_params[:number],
+                             password: student_params[:password],
+                             name: student_params[:name],
+                             gender: student_params[:gender],
+                             team_id: team.id,
+                             email: student_params[:email])
+      if @student.save
+        p student_path(@student.id)
+        redirect_to student_path(@student.id)
+      else
+        p @student.errors
+        render "new"
+      end
     end
   end
 
@@ -43,7 +58,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:student_number, :password, :student_name, :gender, :department, :room_id, :email)
+    params.require(:student).permit(:number, :password, :name, :gender, :team_name, :email)
   end
 end
 

@@ -1,4 +1,4 @@
-<h1>学生管理页面</h1><%= link_to '新建学生',new_student_path %>
+<%= render "welcome/admin_nav" %>
 <table>
   <tr>
     <th>学号</th>
@@ -9,9 +9,9 @@
  
   <% @students.each do |student| %>
     <tr>
-      <td><%= student.student_number %></td>
-      <td><%= student.student_name %></td>
-      <td><%= student.department %></td>
+      <td><%= student.number %></td>
+      <td><%= student.name %></td>
+      <td><%= student.room.name %></td>
       <td><%= link_to '显示具体信息', student_path(student) %></td>
       <td><%= link_to '编排这个学生', edit_student_path(student) %></td>
       <td><%= link_to 'Destroy', student_path(student),
