@@ -1,0 +1,125 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<h1>拼手速</h1>
+<div align="center">
+
+<!--
+<table>
+    <tr>
+        <th>
+            公寓号  
+            <select style="width: 200px;">
+                <option value="空白" style="display: none"></option>
+                <option value ="one">1</option>
+                <option value ="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+            </select>
+        </th>
+     </tr>
+</table>
+
+
+<table>
+    <tr>
+        <th>
+            单元号  
+            <select style="width: 200px;">
+                <option value="空白" style="display: none"></option>
+                <option value ="one">1</option>
+                <option value ="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+            </select>
+        </th>
+     </tr>
+</table>
+
+<table>
+    <tr>
+        <th>
+            楼层&nbsp&nbsp&nbsp
+            <select style="width: 200px;">
+                <option value="空白" style="display: none"></option>
+                <option value ="one">1</option>
+                <option value ="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+            </select>
+        </th>
+     </tr>
+</table>
+
+<table>
+    <tr>
+        <th>
+            套间号  
+            <select style="width: 200px;">
+                <option value="空白" style="display: none"></option>
+                <option value ="one">1</option>
+                <option value ="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+            </select>
+        </th>
+     </tr>
+</table>
+
+<table>
+    <tr>
+        <th>
+            房间号  
+            <select style="width: 200px;">
+                <option value="空白" style="display: none"></option>
+                <option value ="one">1</option>
+                <option value ="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+            </select>
+        </th>
+     </tr>
+</table>
+
+-->
+
+
+<%= form_for :robroom do |f| %>
+  <p>
+    <%= f.label :公寓号 %> 
+    <!--<%= f.text_field :apartment,:style => "width:200px" %>-->
+    <%= f.select :apartment, [1,2,3,4,5],:style => "width:200px"%>
+  </p>
+  <p>
+    <%= f.label :单元号 %>
+    <!--<%= f.text_field :unit %>-->
+    <%= f.select :unit, [1,2,3,4,5],:style => "width:200px" %>
+  </p>
+
+    <p>
+    <%= f.label :楼层 %>
+    <!--<%= f.text_field :floor %>-->
+    <%= f.select :floor, [1,2,3,4,5,6,7,8,9],:style => "width:200px" %>
+  </p>
+
+  <p>
+    <%= f.label :套间号 %>
+    <!--<%= f.text_field :suite %>-->
+    <%= f.select :suite, [1,2,3,4],:style => "width:200px" %>
+  </p>
+
+  <p>
+    <%= f.label :房间号 %>
+    <!--<%= f.text_field :room_number %>-->
+    <%= f.select :room_number,[1,2,3,4,5],:style => "width:200px" %>
+  </p>
+ 
+  <p>
+    <%= f.submit "确定",:style => "width:200px" %>
+  </p>
+<% end %>
+
+<!--<%= link_to '确定' %>-->
+<%= link_to '退出登录',login_url %>
+</div>

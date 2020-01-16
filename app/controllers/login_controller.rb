@@ -13,7 +13,11 @@ class LoginController < ApplicationController
         #flash.now[:danger] = "登录成功，用户名/密码正确！"
         log_in user
         x=user.id.to_s
-        redirect_to '/main/'+x
+        if user.room_id
+          redirect_to '/rooms'
+        else
+          redirect_to '/robdorm/'+x
+        end
     else
         flash.now[:danger] = "登录失败，用户名/密码错误！"
         render :login

@@ -40,6 +40,15 @@ class RoomsController < ApplicationController
 		redirect_to rooms_path
 	end
 
+	def robdorm
+		@room = Room.find(room_params)
+		if (@room.amount < @room.capacity and @room.update(room_params))
+			redirect_to @room
+		else
+			render 'robdorm'
+		end
+	end
+
 	private
 		def room_params
 			params.require(:room).permit(:room_number,:apartment,:unit,:capacity,:amount,:gender,:floor,:department,:suite)
