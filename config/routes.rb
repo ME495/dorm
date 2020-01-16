@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	resources :rooms
 	resources :students
   resources :lectures
+  resources :teams
 
   root 'login#login'
   get  '/main/:id', to: 'main#fetch'
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
   post '/select_room/allocate_room', to: 'select_room#allocate_room'
 
   get '/welcome', to: 'welcome#index'
+  get '/welcome/admin', to: 'welcome#admin_index'
   get '/welcome/show_student', to: 'welcome#show_student'
 end

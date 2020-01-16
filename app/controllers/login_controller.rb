@@ -22,10 +22,11 @@ class LoginController < ApplicationController
           render :login
       end
     elsif params[:session][:type].to_s=="管理员"
-      user = Admin.where("account=?",params[:session][:student_number]).first
+      user = Admin.find_by_account(params[:session][:number])
+
       if user && user.password==params[:session][:password]
-          flash.now[:danger] = "登录成功，管理员功能完善中！"
-          render :login
+        log_in user
+        redirect_to '/welcome/admin'
       else
           flash.now[:danger] = "登录失败，用户名/密码错误！"
           render :login

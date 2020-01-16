@@ -58,6 +58,11 @@
     </div>
   </form>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#new_student").addClass("active");
+    });
+</script>
 <%#= form_for :student, url: students_path do |f| %>
  <%# if not flash.now[:alert].nil? %>
 <!--    <div id="error_explanation">-->
