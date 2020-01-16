@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @students = Student.all
+    #@students = Student.all
+    @students = Student.paginate(page:params[:page], per_page:15)
   end
 
   def show
@@ -16,6 +17,7 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    puts @student.name
   end
 
   def create
@@ -42,11 +44,21 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    if @student.update(student_params)
-      redirect_to @student
-    else
-      render 'edit'
+    team = Team.find_by_name(student_params[:team_name])
+    room = Room.find_by_name(student_params[:room])
+    if team.nil?
+      flash.now[:alert] = '请填写有效的班级!'
+      render "edit"
+    elsif room.nil?
+      flash.now[:alert] = '请填写有效的房间号！'
+      render "edit"
     end
+    #@student = Student.find(params[:id])
+    #if @student.update(student_params)
+    #  redirect_to @student
+    #else
+    #  render 'edit'
+    #end
   end
 
   def destroy
