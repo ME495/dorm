@@ -1,0 +1,39 @@
+<%= render "welcome/admin_nav" %>
+<div class="container">
+  <h1>新增班级</h1>
+  <form action="/teams", method="post">
+    <div class="row">
+      <% if not flash.now[:alert].nil? %>
+        <p><span class="label label-danger"><%= flash.now[:alert] %></span></p>
+      <% end %>
+      <% if not @team.nil? and @team.errors.any? %>
+        <% @team.errors.full_messages.each do |msg| %>
+          <p><span class="label label-danger"><%= msg %></span></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">班级</label>
+        <input type="text" class="form-control" name="team[name]" placeholder="请输入班级" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="department">院系</label>
+        <input type="text" class="form-control" name="team[department]" placeholder="请输入院系" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <input type="submit" class="btn btn-primary" value="提交">
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#new_team").addClass("active");
+    });
+</script>

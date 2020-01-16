@@ -1,52 +1,116 @@
-<h1>新建学生信息</h1>
-<%= link_to '返回学生信息主页面',students_path %>
-<%= form_for :student, url: students_path do |f| %>
- <% if @student.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@student.errors.count, "error") %> prohibited
-        this student from being saved:
-      </h2>
-      <ul>
+<%= render "welcome/admin_nav" %>
+<div class="container">
+  <h1>新增学生</h1>
+  <form action="/students", method="post">
+    <div class="row">
+      <% if not flash.now[:alert].nil? %>
+        <p><span class="label label-danger"><%= flash.now[:alert] %></span></p>
+      <% end %>
+      <% if not @student.nil? and @student.errors.any? %>
         <% @student.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <p><span class="label label-danger"><%= msg %></span></p>
         <% end %>
-      </ul>
+      <% end %>
     </div>
-  <% end %>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">学号</label>
+        <input type="text" class="form-control" name="student[number]" placeholder="请输入学号" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">密码</label>
+        <input type="password" class="form-control" name="student[password]" placeholder="请输入密码" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">姓名</label>
+        <input type="text" class="form-control" name="student[name]" placeholder="请输入姓名" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-1">
+        <label>性别</label>
+        <select class="form-control" name="student[gender]">
+          <option value="male">男</option>
+          <option value="female">女</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label>邮箱</label>
+        <input type="text" class="form-control" name="student[email]" placeholder="请输入邮箱" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-8">
+        <label for="name">班级</label>
+        <input type="text" class="form-control" name="student[team_name]" placeholder="请输入班级" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <input type="submit" class="btn btn-primary" value="提交">
+      </div>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#new_student").addClass("active");
+    });
+</script>
+<%#= form_for :student, url: students_path do |f| %>
+ <%# if not flash.now[:alert].nil? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2>-->
+<!--        <%#= pluralize(flash.now[:alert].count, "error") %> prohibited-->
+<!--        this student from being saved:-->
+<!--      </h2>-->
+<!--      <ul>-->
+        <%# flash.now[:alert].full_messages.each do |msg| %>
+<!--          <li><%#= msg %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <p><span class="label label-danger"><%#= flash.now[:alert] %></span></p>-->
+  <%# end %>
 
 
-  <p>
-    <%= f.label :学号 %><br>
-    <%= f.text_field :student_number %>
-  </p>
-  <p>
-    <%= f.label :密码 %><br>
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :学生姓名 %><br>
-    <%= f.text_field :student_name %>
-  </p>
-  <p>
-    <%= f.label :性别 %><br>
-    <%= f.text_field :gender %>
-  </p>
-  <p>
-    <%= f.label :学生所在院系 %><br>
-    <%= f.text_field :department %>
-  </p>
-  <p>
-    <%= f.label :房间号 %><br>
-    <%= f.text_field :room_id %>
-  </p>
-   <p>
-    <%= f.label :email（用于密码重置） %><br>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<!--  <p>-->
+<!--    <%#= f.label :学号 %><br>-->
+    <%#= f.text_field :number %>
+<!--  </p>-->
+<!--  <p>-->
+<!--    <%#= f.label :密码 %><br>-->
+    <%#= f.text_field :password %>
+<!--  </p>-->
+<!--  <p>-->
+<!--    <%#= f.label :学生姓名 %><br>-->
+    <%#= f.text_field :name %>
+<!--  </p>-->
+<!--  <p>-->
+<!--    <%#= f.label :性别 %><br>-->
+    <%#= f.text_field :gender %>
+<!--  </p>-->
+<!--  <p>-->
+<!--    <%#= f.label :学生所在班级 %><br>-->
+    <%#= f.text_field :team_name %>
+<!--  </p>-->
+<!--  <p>-->
+<!--    <%#= f.label :房间号 %><br>-->
+    <%#= f.text_field :room_name %>
+<!--  </p>-->
+<!--   <p>-->
+<!--    <%#= f.label :email（用于密码重置） %><br>-->
+    <%#= f.text_field :email %>
+<!--  </p>-->
+<!--  <p>-->
+    <%#= f.submit %>
+<!--  </p>-->
+<%# end %>
 
 

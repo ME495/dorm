@@ -1,0 +1,42 @@
+<%= render "welcome/admin_nav" %>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <caption><h1>宿舍小讲堂</h1></caption>
+      <thead>
+      <tr>
+        <th>班级</th>
+        <th>院系</th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= team.department %></td>
+          <td><%= link_to '编辑', edit_team_path(team) %></td>
+          <td><%= link_to '删除', team_path(team),
+                          method: :delete,
+                          data: { confirm: '确定要删除这个班级吗?' } %></td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <div class="flickr_pagination">
+      <%= will_paginate @teams, :container => false %>
+      <div class="page_info">
+        <%= page_entries_info @teams %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#teams").addClass("active");
+    });
+</script>

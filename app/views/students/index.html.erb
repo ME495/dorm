@@ -1,23 +1,47 @@
-<h1>学生管理页面</h1><%= link_to '新建学生',new_student_path %>
-<table>
-  <tr>
-    <th>学号</th>
-    <th>姓名</th>
-    <th>房间号</th>
-    <th colspan="3"></th>
-  </tr>
- 
-  <% @students.each do |student| %>
-    <tr>
-      <td><%= student.student_number %></td>
-      <td><%= student.student_name %></td>
-      <td><%= student.department %></td>
-      <td><%= link_to '显示具体信息', student_path(student) %></td>
-      <td><%= link_to '编排这个学生', edit_student_path(student) %></td>
-      <td><%= link_to 'Destroy', student_path(student),
-              method: :delete,
-              data: { confirm: '确定要删除这条学生信息?' } %></td>
-	
-    </tr>
-  <% end %>
-</table>
+<%= render "welcome/admin_nav" %>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <caption><h1>宿舍小讲堂</h1></caption>
+      <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>房间号</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.number %></td>
+          <td><%= student.name %></td>
+          <td><%= student.gender %></td>
+          <td><%= student.room.name if not student.room.nil?%></td>
+          <td><%= link_to '显示详细信息', student_path(student) %></td>
+          <td><%= link_to '编辑', edit_student_path(student) %></td>
+          <td><%= link_to '删除', student_path(student),
+                          method: :delete,
+                          data: { confirm: '确定要删除这条学生信息?' } %></td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <div class="flickr_pagination">
+      <%= will_paginate @students, :container => false %>
+      <div class="page_info">
+        <%= page_entries_info @students %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#students").addClass("active");
+    });
+</script>
