@@ -2,7 +2,6 @@
 <div class="container">
   <h1>修改学生</h1>
   <%= form_for(@student) do |f| %>
-  <form action="<%= student_path(params[:id]) %>" method="post">
     <div class="row">
       <% if not flash.now[:alert].nil? %>
         <p><span class="label label-danger"><%= flash.now[:alert] %></span></p>
